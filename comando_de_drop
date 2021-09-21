@@ -1,0 +1,31 @@
+# comando de drop
+
+    @commands.command(name="drop", help="Ganhe um drop especial!")
+    async def drop(self, ctx):
+
+        qnt = random.randrange(50)
+        
+        # Itens de drop [Modifique]
+        
+        item = [
+            "Kilos de feijão 🥘", "Caixas de leite 🥛", "Tele-senas 🧾", "Camisas do Proerd 👕", 
+            "Abadás da pipoca do Kanário 🎽", "Tapas na cara 🖐🏻", "Aviãozinhos do Silvio Santos 💸", 
+            "Reais em barras de ouro 🟡", "Gatinhos 🐈", "Sapos mortos 🐸", "Penas de urubu 🦅"
+        ]
+        
+        # Conclusões
+        
+        concl = [
+            "🥳 Parabéns", "🤩 Incrível", "😎 Aproveite seu prêmio", "😝 Use e abuse", 
+            "🙄 Hmm... Top hein", "😶 Queria", "🤐 Boa sorte"
+        ]
+
+        embed_info = discord.Embed(
+            description = ("Você ganhou: {} ".format(qnt) + "**{}**".format(random.choice(item)) + "\n" + "***{}***".format(random.choice(concl))),
+            color = 0x00ff00
+        )
+        embed_info.set_author(
+            name="Drop", 
+            icon_url="https://static.vecteezy.com/system/resources/previews/002/641/213/non_2x/package-icon-vector.jpg")
+        
+        await ctx.send(embed = embed_info)
